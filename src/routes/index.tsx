@@ -1,5 +1,4 @@
-import { Navigate, Outlet, useLocation } from 'react-router-dom'
-import { createBrowserRouter } from 'react-router-dom'
+import { Navigate, Outlet, useLocation, createHashRouter, RouterProvider } from 'react-router-dom'
 
 import { ROUTES } from '@/constants/routes'
 import { AdminLayout } from '@/layouts/AdminLayout'
@@ -65,7 +64,8 @@ function MobileRoutesWrapper() {
   )
 }
 
-export const router = createBrowserRouter([
+// 关键：替换为 createHashRouter，不需要 basename
+export const router = createHashRouter([
   { path: ROUTES.PORTAL, element: <PortalPage /> },
   { path: ROUTES.ADMIN.LOGIN, element: <AdminLoginPage /> },
   {
