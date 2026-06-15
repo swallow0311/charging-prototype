@@ -1,4 +1,4 @@
-import { Navigate, Outlet, useLocation, createHashRouter, RouterProvider } from 'react-router-dom'
+import { Navigate, Outlet, useLocation, createHashRouter } from 'react-router-dom'
 
 import { ROUTES } from '@/constants/routes'
 import { AdminLayout } from '@/layouts/AdminLayout'
