@@ -1,0 +1,455 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/geist";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --font-heading: var(--font-sans);
+  --font-sans: 'Geist Variable', sans-serif;
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+}
+
+/* PC 管理后台 — 简约清新 · 晴空蓝配色体系 */
+.theme-admin {
+  /* 品牌主色 */
+  --admin-primary: #4096FF;
+  --admin-primary-hover: #60A9FF;
+  --admin-primary-active: #2380E6;
+  --admin-selected-bg: #E8F3FF;
+  --admin-hover-bg: #EFF4FB;
+
+  /* 功能色 */
+  --admin-success: #52C41A;
+  --admin-warning: #FF7D00;
+  --admin-danger: #F54242;
+  --admin-purple: #9254DE;
+
+  /* 中性色 */
+  --admin-card: #FFFFFF;
+  --admin-bg: #F7F8FA;
+  --admin-border: #E5E7EB;
+  --admin-text-title: #1F2937;
+  --admin-text-body: #4B5563;
+  --admin-text-muted: #9CA3AF;
+  --admin-text-disabled: #D1D5DB;
+
+  /* 侧边栏尺寸 */
+  --admin-sidebar-width: 240px;
+  --admin-sidebar-collapsed: 72px;
+
+  /* 映射 Shadcn 令牌 */
+  --background: var(--admin-bg);
+  --foreground: var(--admin-text-title);
+  --card: var(--admin-card);
+  --card-foreground: var(--admin-text-title);
+  --popover: var(--admin-card);
+  --popover-foreground: var(--admin-text-title);
+  --primary: var(--admin-primary);
+  --primary-foreground: #FFFFFF;
+  --secondary: var(--admin-hover-bg);
+  --secondary-foreground: var(--admin-text-body);
+  --muted: var(--admin-hover-bg);
+  --muted-foreground: var(--admin-text-muted);
+  --accent: var(--admin-selected-bg);
+  --accent-foreground: var(--admin-primary);
+  --destructive: var(--admin-danger);
+  --border: var(--admin-border);
+  --input: var(--admin-border);
+  --ring: var(--admin-primary);
+  --chart-1: var(--admin-primary);
+  --chart-2: var(--admin-success);
+  --chart-3: var(--admin-warning);
+  --chart-4: var(--admin-purple);
+  --chart-5: var(--admin-danger);
+  --sidebar: var(--admin-card);
+  --sidebar-foreground: var(--admin-text-body);
+  --sidebar-primary: var(--admin-primary);
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: var(--admin-selected-bg);
+  --sidebar-accent-foreground: var(--admin-primary);
+  --sidebar-border: var(--admin-border);
+  --sidebar-ring: var(--admin-primary);
+}
+
+.theme-admin .admin-card {
+  border: 1px solid var(--admin-border);
+  border-radius: 8px;
+  box-shadow: none;
+  background: var(--admin-card);
+}
+
+.theme-admin .admin-card--borderless {
+  border: none;
+  box-shadow: none;
+}
+
+/* 一级菜单条目 */
+.theme-admin .admin-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 7px 10px;
+  border-radius: 6px;
+  color: var(--admin-text-body);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.theme-admin .admin-nav-item:hover {
+  background-color: var(--admin-hover-bg);
+  color: var(--admin-primary);
+}
+
+.theme-admin .admin-nav-item--active {
+  background: linear-gradient(90deg, var(--admin-selected-bg) 0%, rgba(232, 243, 255, 0.4) 100%);
+  color: var(--admin-primary);
+  font-weight: 500;
+}
+
+.theme-admin .admin-nav-item--active:hover {
+  background: linear-gradient(90deg, var(--admin-selected-bg) 0%, rgba(232, 243, 255, 0.4) 100%);
+  color: var(--admin-primary);
+}
+
+.theme-admin .admin-nav-item__indicator {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 24px;
+  border-radius: 0 2px 2px 0;
+  background-color: var(--admin-primary);
+}
+
+.theme-admin .admin-nav-group-trigger {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 7px 10px;
+  border-radius: 6px;
+  color: var(--admin-text-body);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.theme-admin .admin-nav-group-trigger:hover {
+  background-color: var(--admin-hover-bg);
+  color: var(--admin-primary);
+}
+
+.theme-admin .admin-nav-group-trigger--active {
+  color: var(--admin-primary);
+  font-weight: 500;
+}
+
+.theme-admin .admin-nav-sub-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 12px;
+  padding: 6px 10px 6px 28px;
+  border-radius: 6px;
+  color: var(--admin-text-muted);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.theme-admin .admin-nav-sub-item:hover {
+  background-color: var(--admin-hover-bg);
+  color: var(--admin-primary);
+}
+
+.theme-admin .admin-nav-sub-item--active {
+  background: var(--admin-selected-bg);
+  color: var(--admin-primary);
+  font-weight: 500;
+}
+
+.theme-admin .admin-nav-sub-item__dot {
+  position: absolute;
+  left: 18px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--admin-primary);
+}
+
+.theme-admin .admin-sidebar {
+  box-shadow: none;
+}
+
+/* 移动端 H5 — 浅色新能源简约风 */
+.theme-mobile {
+  --background: oklch(0.98 0.005 145);
+  --foreground: oklch(0.20 0.02 145);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.20 0.02 145);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.20 0.02 145);
+  --primary: oklch(0.55 0.16 155);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.95 0.02 155);
+  --secondary-foreground: oklch(0.30 0.04 155);
+  --muted: oklch(0.95 0.01 145);
+  --muted-foreground: oklch(0.50 0.03 145);
+  --accent: oklch(0.93 0.03 155);
+  --accent-foreground: oklch(0.25 0.04 155);
+  --destructive: oklch(0.55 0.22 25);
+  --border: oklch(0.90 0.02 145);
+  --input: oklch(0.92 0.02 145);
+  --ring: oklch(0.55 0.14 155);
+  --chart-1: oklch(0.55 0.16 155);
+  --chart-2: oklch(0.65 0.14 180);
+  --chart-3: oklch(0.70 0.12 85);
+  --chart-4: oklch(0.60 0.15 250);
+  --chart-5: oklch(0.55 0.18 25);
+}
+
+/* 车主端板块：无边框，留白分隔 */
+.theme-mobile .mobile-block {
+  border: none;
+  box-shadow: none;
+  background: var(--card);
+  border-radius: 0.75rem;
+}
+
+.theme-mobile .mobile-tabs-list {
+  background: transparent;
+  padding: 0;
+  gap: 0;
+  height: auto;
+}
+
+.theme-mobile .mobile-tabs-trigger {
+  padding: 0.5rem 0.25rem;
+  font-size: 0.6875rem;
+  border: none;
+  box-shadow: none;
+  color: var(--muted-foreground);
+}
+
+.theme-mobile .mobile-tabs-trigger[data-active],
+.theme-mobile .mobile-tabs-trigger[data-state="active"] {
+  color: var(--primary);
+  font-weight: 600;
+  background: transparent;
+  box-shadow: none;
+}
+
+.theme-mobile .mobile-tabs-trigger[data-active]::after,
+.theme-mobile .mobile-tabs-trigger[data-state="active"]::after {
+  opacity: 1;
+  background: var(--primary);
+}
+
+/* 车主端数据块统一 20px 间距 */
+.theme-mobile .mobile-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.theme-admin .datatable-row--selectable {
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.theme-admin .datatable-row--selectable:hover {
+  background-color: var(--admin-hover-bg);
+}
+
+.theme-admin .datatable-row--selected {
+  background-color: var(--admin-selected-bg) !important;
+}
+
+.theme-admin .datatable-row--selected:hover {
+  background-color: var(--admin-selected-bg);
+}
+
+@keyframes admin-flash {
+  0%, 100% { box-shadow: inset 0 0 0 0 transparent; }
+  50% { box-shadow: inset 0 0 0 2px var(--admin-danger); }
+}
+
+.theme-admin .admin-flash-alert {
+  animation: admin-flash 1.2s ease-in-out infinite;
+}
+
+/* 弹窗 / 抽屉 / 下拉 — 与后台配色统一 */
+.theme-admin [data-slot="dialog-content"],
+.theme-admin .admin-dialog-content {
+  background: var(--admin-card);
+  border: 1px solid var(--admin-border);
+  color: var(--admin-text-title);
+  box-shadow: 0 8px 24px rgba(31, 41, 55, 0.08);
+}
+
+.theme-admin [data-slot="dialog-footer"] {
+  background: var(--admin-hover-bg);
+  border-color: var(--admin-border);
+}
+
+.theme-admin [data-slot="sheet-content"],
+.theme-admin .admin-sheet-content {
+  background: var(--admin-card);
+  border-color: var(--admin-border);
+  color: var(--admin-text-title);
+}
+
+.theme-admin [data-slot="alert-dialog-content"] {
+  background: var(--admin-card);
+  border: 1px solid var(--admin-border);
+  color: var(--admin-text-title);
+}
+
+.theme-admin [data-slot="dialog-overlay"],
+.theme-admin [data-slot="sheet-overlay"],
+.theme-admin [data-slot="alert-dialog-overlay"] {
+  background: rgba(31, 41, 55, 0.35);
+}
+
+.theme-admin .admin-dropdown,
+.theme-admin [data-slot="dropdown-menu-content"],
+.theme-admin [data-slot="select-content"] {
+  background: var(--admin-card);
+  border: 1px solid var(--admin-border);
+  color: var(--admin-text-title);
+}
+
+.theme-admin,
+.theme-mobile {
+  min-height: 100dvh;
+}
+
+@keyframes scan {
+  0%, 100% { top: 12px; }
+  50% { top: calc(100% - 12px); }
+}
